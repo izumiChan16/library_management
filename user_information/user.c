@@ -15,8 +15,6 @@ UserTable readFile(UserTable table, const char *filename) {
         return table;
     }
 
-
-
     while (fscanf(file, "%[^,],%[^,],%[^,],%[^,],%s\n",
                   table.userTable[table.userCount].userid,
                   table.userTable[table.userCount].password,
