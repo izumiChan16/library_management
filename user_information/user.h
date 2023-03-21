@@ -5,21 +5,26 @@
 #define MAX_PASSWORD_LENGTH 50
 
 // Function to load users from file
-void loadUsers();
+void readFile(const char *filename);
 
 // Function to save users to file
-void saveUsers();
+int findUserById(const char *userid);
+int findUserByUsername(const char *username);
 
 // Function to add a new user
-void addUser(char *name, char *password, int isAdmin);
+void addUser(const char *userid, const char *password, const char *username, const char *contact, int is_admin);
 
 // Function to check if a password is correct
-int checkPassword(char *name, char *password);
 
-// Function to check if a user is an admin
-int isAdmin(char *name);
 
-// Function to find a user by name and return their index
-int findUser(char *name);
+void deleteUserById(const char *userid);
+
+void deleteUserByUsername(const char *username);
+
+void modifyUserById(const char *userid, const char *newPassword, const char *newUsername, const char *newContact, int newIsAdmin);
+
+void modifyUserByUsername(const char *username, const char *newPassword, const char *newUserId, const char *newContact, int newIsAdmin);
+
+int is_admin(char *name);
 
 #endif

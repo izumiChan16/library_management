@@ -4,7 +4,7 @@
 #include <string.h>
 
 #define MAX_USERS 100
-#define USERS_FILE "users.csv"
+#define USERS_FILE "data/users.csv"
 
 typedef struct {
     char name[MAX_NAME_LENGTH];

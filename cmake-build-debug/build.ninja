@@ -61,6 +61,12 @@ build CMakeFiles/library_management.dir/user_information/user.c.obj: C_COMPILER_
   OBJECT_DIR = CMakeFiles\library_management.dir
   OBJECT_FILE_DIR = CMakeFiles\library_management.dir\user_information
 
+build CMakeFiles/library_management.dir/book_information/books.c.obj: C_COMPILER__library_management_Debug C$:/Users/izumi/CLionProjects/library_management/book_information/books.c || cmake_object_order_depends_target_library_management
+  DEP_FILE = CMakeFiles\library_management.dir\book_information\books.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu11
+  OBJECT_DIR = CMakeFiles\library_management.dir
+  OBJECT_FILE_DIR = CMakeFiles\library_management.dir\book_information
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target library_management
@@ -69,7 +75,7 @@ build CMakeFiles/library_management.dir/user_information/user.c.obj: C_COMPILER_
 #############################################
 # Link the executable library_management.exe
 
-build library_management.exe: C_EXECUTABLE_LINKER__library_management_Debug CMakeFiles/library_management.dir/main.c.obj CMakeFiles/library_management.dir/user_information/user.c.obj
+build library_management.exe: C_EXECUTABLE_LINKER__library_management_Debug CMakeFiles/library_management.dir/main.c.obj CMakeFiles/library_management.dir/user_information/user.c.obj CMakeFiles/library_management.dir/book_information/books.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\library_management.dir
