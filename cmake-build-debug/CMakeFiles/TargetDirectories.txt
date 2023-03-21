@@ -1,3 +1,0 @@
-C:/Users/izumi/CLionProjects/library_management/cmake-build-debug/CMakeFiles/library_management.dir
-C:/Users/izumi/CLionProjects/library_management/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/izumi/CLionProjects/library_management/cmake-build-debug/CMakeFiles/rebuild_cache.dir
