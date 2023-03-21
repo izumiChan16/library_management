@@ -16,7 +16,7 @@ int main() {
 
     table = deleteUserByUsername(table, "文妙珍");
 
-    table = modifyUserById(table, "20230321005", "new_password", "赤笑雯", "17708923137", "0");
+    table = modifyUserById(table, "20230321005", "20230321031", "赤笑雯", "18832221723", "0");
 
     saveFile(table, "user_updated.csv");
 

@@ -8,7 +8,7 @@
  */
 typedef struct User {
     char userid[12];
-    char password[12];
+    char password[13];
     char username[20];
     char contact[12];
     char is_admin[10];

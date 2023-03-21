@@ -83,6 +83,7 @@ UserTable deleteUserByUsername(UserTable table, const char *username) {
 UserTable modifyUserById(UserTable table, const char *userid, const char *newPassword, const char *newUsername, const char *newContact, const char *newIsAdmin) {
     int index = findUserById(table, userid);
     if (index != -1) {
+        printf("hello");
         strcpy(table.userTable[index].password, newPassword);
         strcpy(table.userTable[index].username, newUsername);
         strcpy(table.userTable[index].contact, newContact);
