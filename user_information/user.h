@@ -1,30 +1,48 @@
 #ifndef USER_MANAGEMENT_H
 #define USER_MANAGEMENT_H
 
-#define MAX_NAME_LENGTH 50
-#define MAX_PASSWORD_LENGTH 50
+/**
+ * @CreateTime 2023/3/21 18:55
+ * @Author izumi
+ * DONE: 定义结构体User
+ */
+typedef struct User {
+    char userid[12];
+    char password[12];
+    char username[20];
+    char contact[12];
+    char is_admin[10];
+} User;
 
-// Function to load users from file
-void readFile(const char *filename);
-
-// Function to save users to file
-int findUserById(const char *userid);
-int findUserByUsername(const char *username);
-
-// Function to add a new user
-void addUser(const char *userid, const char *password, const char *username, const char *contact, int is_admin);
-
-// Function to check if a password is correct
+/**
+ * @CreateTime 2023/3/21 18:55
+ * @Author izumi
+ * DONE: 定义`存储结构体信息`的结构体
+ */
+typedef struct UserTable {
+    User userTable[100];
+    int userCount;
+} UserTable;
 
 
-void deleteUserById(const char *userid);
+UserTable initUserTable();
 
-void deleteUserByUsername(const char *username);
+UserTable readFile(UserTable table, const char *filename);
 
-void modifyUserById(const char *userid, const char *newPassword, const char *newUsername, const char *newContact, int newIsAdmin);
+UserTable addUser(UserTable table, const char *userid, const char *password, const char *username, const char *contact, const char *is_admin);
 
-void modifyUserByUsername(const char *username, const char *newPassword, const char *newUserId, const char *newContact, int newIsAdmin);
+int findUserById(UserTable table, const char *userid);
 
-int is_admin(char *name);
+int findUserByUsername(UserTable table, const char *username);
+
+UserTable deleteUserById(UserTable table, const char *userid);
+
+UserTable deleteUserByUsername(UserTable table, const char *username);
+
+UserTable modifyUserById(UserTable table, const char *userid, const char *newPassword, const char *newUsername, const char *newContact, const char *newIsAdmin) ;
+
+UserTable modifyUserByUsername(UserTable table, const char *username, const char *newPassword, const char *newUserId, const char *newContact, const char *newIsAdmin);
+
+void saveFile(UserTable table, const char *filename) ;
 
 #endif
