@@ -1,0 +1,8 @@
+//
+// Created by 21705 on 2023/3/21.
+//
+
+#ifndef LIBRARY_MANAGEMENT_BOOK_H
+#define LIBRARY_MANAGEMENT_BOOK_H
+
+#endif //LIBRARY_MANAGEMENT_BOOK_H
