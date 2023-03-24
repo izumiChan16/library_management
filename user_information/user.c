@@ -14,7 +14,6 @@ UserTable readFile(UserTable table, const char *filename) {
         printf("Error opening file.\n");
         return table;
     }
-
     while (fscanf(file, "%[^,],%[^,],%[^,],%[^,],%s\n",
                   table.userTable[table.userCount].userid,
                   table.userTable[table.userCount].password,
