@@ -5,7 +5,7 @@
 int main() {
     UserTable table = initUserTable();
 
-    table = readFile(table, "data/users.csv");
+    table = readFile(table, "../data/users.csv");
 
     table = addUser(table, "20230321022", "20230321022", "新用户", "12345678901", "0");
 
