@@ -51,4 +51,19 @@ ReadersTable addReader(
         const char  *last_updated
         );
 
+ReadersTable  deleteReader(ReadersTable table, const char *userid);
+
+ReadersTable updateReader(ReadersTable table, const char *userid, const char *username,
+                          const char *contact, const char *membership_type,
+                          const char  *membership_expiration_date, const char *date_created,
+                          const char  *last_updated);
+
+ReadersTable searchReader(ReadersTable table, const char *userid);
+
+ReadersTable sortReader(ReadersTable table);
+
+ReadersTable saveReadersTableToFile(ReadersTable table, const char *filename);
+
+
+
 #endif //LIBRARY_MANAGEMENT_READERS_H
