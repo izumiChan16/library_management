@@ -13,11 +13,13 @@ typedef struct BooksInfo{
 //    作家
     char Publisher[12];
 //    出版社
-    char Isbn[12];
+    char ISBN[12];
     char Price[12];
 //    价格
-    char
-}books_info;
+    char num_copies[12];
+//    该编号图书总数
+    char num_available[12];
+}Books_info;
 
 typedef struct BookTable{
     struct BooksInfo BooksInfo[100];
@@ -33,6 +35,8 @@ BookTable readFile(BookTable table, const char *filename);
 BookTable addBook(BookTable table, const char *isbn, const char *bookname, const char *writer, const char *publisher, const char *price, const char *num_copies, const char *num_available);
 //
 
-int findisbn(BookTable table, const char *isbn);
+int findISBN(struct BooksInfo table, const char *isbn);
 //循环遍历对象数组中的每本书，并使用 将每本书的 ISBN 与给定字符串进行比较。如果找到匹配的书籍，该函数将返回其在数组中的索引
 
+int findBookByBookName(struct BooksInfo table, const char *bookname);
+//通过书名查找书籍
