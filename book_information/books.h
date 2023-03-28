@@ -8,18 +8,18 @@
 #endif //LIBRARY_MANAGEMENT_BOOKS_H
 
 typedef struct BooksInfo{
-    char Bookname[12];
-    char Writter[12];
+    char Bookname[20];
+    char Writter[20];
 //    作家
-    char Publisher[12];
+    char Publisher[20];
 //    出版社
-    char ISBN[12];
-    char Price[12];
+    char ISBN[20];
+    char Price[20];
 //    价格
-    char num_copies[12];
+    char num_copies[20];
 //    该编号图书总数
-    char num_available[12];
-}Books_info;
+    char num_available[20];
+}BooksInfo;
 
 typedef struct BookTable{
     struct BooksInfo BooksInfo[100];
