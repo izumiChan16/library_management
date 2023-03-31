@@ -2,13 +2,13 @@
 #include <stdio.h>
 #include <string.h>
 
-BookTable initBookTable(){
-    BookTable table;
+BooksTable initBooksTable(){
+    BooksTable table;
     table.bookCount = 0;
     return table;
 }
 
-BookTable readFile(BookTable table, const char *books) {
+BooksTable readFile(BooksTable table, const char *books) {
     FILE *file = fopen(books, "r");
 //    打开books，并返回一个指向books的指针
     if (!file) {
@@ -31,7 +31,7 @@ BookTable readFile(BookTable table, const char *books) {
     return table;
 }
 
-BookTable addBook(BookTable table, const char *isbn, const char *bookname, const char *writer, const char *publisher, const char *price, const char *num_copies, const char *num_available) {
+BooksTable addBook(BooksTable table, const char *isbn, const char *bookname, const char *writer, const char *publisher, const char *price, const char *num_copies, const char *num_available) {
     if (table.bookCount >= num_copies) {
         printf("Book table is full.\n");
         return table;
@@ -47,11 +47,11 @@ BookTable addBook(BookTable table, const char *isbn, const char *bookname, const
     return table;
 }
 
-int findISBN(struct BooksInfo table, const char *isbn) {
-    //循环浏览bookTable数组
+int findISBN(BooksTable table, const char *isbn) {
+    //循环浏览BooksTable数组
     for (int i = 0; i < table.bookCount; i++) {
         //将当前书籍的ISBN字段与给定的ISBN进行比较
-        if (strcmp(table.BookInfo[i].isbn, isbn) == 0) {
+        if (strcmp(table[i].BookInfo.isbn, isbn) == 0) {
             //如果它们匹配，返回当前书籍的索引
             return i;
         }
@@ -60,7 +60,8 @@ int findISBN(struct BooksInfo table, const char *isbn) {
     return -1;
 }
 
-int findBookByBookName(struct BooksInfo table, const char *bookname) {
+//按照书名查找
+int findBookByBookName(BooksTable table, const char *bookname) {
     for (int i = 0; i < table.num_copies; i++) {
         if (strcmp(table.Bookname, bookname) == 0) {
             return i;
@@ -69,4 +70,35 @@ int findBookByBookName(struct BooksInfo table, const char *bookname) {
     return -1;
 }
 
+//ISBN删书
+BooksTable deleteISBN(BooksTable table, const char *ISBN) {
+    int index = findISBN(table, ISBN);
+    if (index == -1) {
+        printf("Book not found.\n");
+        return table;
+    }
+    for (int i = index; i < table.bookCount - 1; i++) {
+            table.BooksInfo[i] = table.BooksInfo[i+1];
+    }
+    table.bookCount--;
+    return table;
+}
+
+BooksTable deleteBookByBookname(BooksTable table, const char *bookname) {
+    int index = findBookByBookName(table, bookname);
+    if (index == -1) {
+        printf("Book not found.\n");
+        return table;
+    }
+    for (int i = index; i < num_copies - 1; i++) {
+        strcpy(table[i].ISBN, table[i+1].ISBN);
+        strcpy(table[i].Bookname, table[i+1].Bookname);
+        strcpy(table[i].Writter, table[i+1].Writter);
+        strcpy(table[i].Publisher, table[i+1].Publisher);
+        strcpy(table[i].Price, table[i+1].Price);
+        strcpy(table[i].num_copies, table[i+1].num_copies);
+        strcpy(table[i].num_available, table[i+1].num_available);
+    }
+    return table;
+}
 
