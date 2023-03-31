@@ -47,11 +47,11 @@ BookTable addBook(BookTable table, const char *isbn, const char *bookname, const
     return table;
 }
 
-int findISBN(struct BooksInfo table, const char *isbn) {
+int findISBN(BookTable table, const char *isbn) {
     //循环浏览bookTable数组
     for (int i = 0; i < table.bookCount; i++) {
         //将当前书籍的ISBN字段与给定的ISBN进行比较
-        if (strcmp(table.BookInfo[i].isbn, isbn) == 0) {
+        if (strcmp(table.BooksInfo[i].ISBN, isbn) == 0) {
             //如果它们匹配，返回当前书籍的索引
             return i;
         }
@@ -60,9 +60,9 @@ int findISBN(struct BooksInfo table, const char *isbn) {
     return -1;
 }
 
-int findBookByBookName(struct BooksInfo table, const char *bookname) {
-    for (int i = 0; i < table.num_copies; i++) {
-        if (strcmp(table.Bookname, bookname) == 0) {
+int findBookByBookName(BookTable table, const char *bookname) {
+    for (int i = 0; i < table.BooksInfo[i].num_copies; i++) {
+        if (strcmp(table.BooksInfo[i].Bookname, bookname) == 0) {
             return i;
         }
     }

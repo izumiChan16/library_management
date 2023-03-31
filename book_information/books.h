@@ -35,8 +35,8 @@ BookTable readFile(BookTable table, const char *filename);
 BookTable addBook(BookTable table, const char *isbn, const char *bookname, const char *writer, const char *publisher, const char *price, const char *num_copies, const char *num_available);
 //
 
-int findISBN(struct BooksInfo table, const char *isbn);
+int findISBN(BookTable table, const char *isbn);
 //循环遍历对象数组中的每本书，并使用 将每本书的 ISBN 与给定字符串进行比较。如果找到匹配的书籍，该函数将返回其在数组中的索引
 
-int findBookByBookName(struct BooksInfo table, const char *bookname);
+int findBookByBookName(BookTable table, const char *bookname);
 //通过书名查找书籍
