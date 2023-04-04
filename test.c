@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include "reader_information/readers.h"
+#include "entrance/enter.h"
+#include "user_information/user.h"
+
 
 void testReaders(){
     ReadersTable table = initReadersTable();
@@ -38,7 +41,22 @@ void testReaders(){
     }
 }
 
-int main(){
-    testReaders();
-    return 0;
+// 为enter.h编写测试方法
+void testLogin(){
+    UserTable table = initUserTable();
+
+    table = readFile(table, "../data/users.csv");
+    bool result = login(table);
+    if (result) {
+        printf("Login successfully!\n");
+    } else {
+        printf("Login failed!\n");
+    }
 }
+
+// int main(){
+//     // testReaders();
+//
+//     testLogin();
+//     return 0;
+// }

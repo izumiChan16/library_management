@@ -8,8 +8,8 @@ BookTable initBookTable(){
     return table;
 }
 
-BookTable readFile(BookTable table, const char *books) {
-    FILE *file = fopen(books, "r");
+BookTable readBooksFile(BookTable table, const char *filename){
+    FILE *file = fopen(filename, "r");
 //    打开books，并返回一个指向books的指针
     if (!file) {
         printf("Error opening file.\n");
@@ -61,7 +61,7 @@ int findISBN(BookTable table, const char *isbn) {
 }
 
 int findBookByBookname(BookTable table, const char *Bookname) {
-    for (int i = 0; i < table.BooksInfo[i].Total; i++) {
+    for (int i = 0; i < table.bookCount; i++) {
         if (strcmp(table.BooksInfo[i].Bookname, Bookname) == 0) {
             return i;
         }
@@ -108,7 +108,7 @@ BookTable modifyBookByBookname(BookTable table, const char *Bookname, const char
     return table;
 }
 
-void saveFile(BookTable table, const char *books) {
+void saveBooksFile(BookTable table, const char *books) {
     FILE *file = fopen(books, "w");
     if (!file) {
         printf("Error opening file.\n");

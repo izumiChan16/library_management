@@ -29,7 +29,7 @@ typedef struct BookTable{
 BookTable initBookTable();
 //初始化图书表
 
-BookTable readFile(BookTable table, const char *filename);
+BookTable readBooksFile(BookTable table, const char *filename);
 //打开由“文件名”指定的文件fscanf.文件的每一行应包含格式为“ISBN，书籍名称，作者，出版商，价格，份数，可用数量”的书籍数据
 
 BookTable addBook(BookTable table, const char *isbn, const char *Bookname, const char *writer, const char *publisher, const char *price, const char *Total, const char *Available);
@@ -50,7 +50,7 @@ BookTable modifyBookByISBN(BookTable table, const char *ISBN, const char *newPri
 BookTable modifyBookByBookname(BookTable table, const char *Bookname, const char *newPrice, const char *newTotal, const char *newAvailable) ;
 //
 
-void saveFile(BookTable table, const char *books) ;
+void saveBooksFile(BookTable table, const char *books) ;
 //保存文件
 
 #endif
