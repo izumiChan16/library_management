@@ -16,7 +16,7 @@ BookTable readBooksFile(BookTable table, const char *filename){
         return table;
     }
 //    判断file是否为NULL。如果file为NULL，表示文件打开失败，这时会执行if代码块中的语句，打印一个错误消息并返回table。
-    while (fscanf(file, "%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]",
+    while (fscanf(file, "%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%s\n",
                   table.BooksInfo[table.bookCount].ISBN,
                   table.BooksInfo[table.bookCount].Bookname,
                   table.BooksInfo[table.bookCount].Writter,
@@ -116,11 +116,13 @@ void saveBooksFile(BookTable table, const char *books) {
     }
 
     for (int i = 0; i < table.bookCount; i++) {
-        fprintf(file, "%s,%s,%s,%s,%s\n",
+        printf("%s\n", table.BooksInfo[i].ISBN);
+        fprintf(file, "%s,%s,%s,%s,%s,%s,%s\n",
+                table.BooksInfo[i].ISBN,
                 table.BooksInfo[i].Bookname,
                 table.BooksInfo[i].Writter,
                 table.BooksInfo[i].Publisher,
-                table.BooksInfo[i].ISBN,
+
                 table.BooksInfo[i].Price,
                 table.BooksInfo[i].Total,
                 table.BooksInfo[i].Available);

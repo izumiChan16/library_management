@@ -7,10 +7,10 @@
 
 
 typedef struct BooksInfo{
-    char Bookname[20];
+    char Bookname[50];
     char Writter[20];
 //    作家
-    char Publisher[20];
+    char Publisher[50];
 //    出版社
     char ISBN[20];
     char Price[20];
